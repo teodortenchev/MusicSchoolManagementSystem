@@ -1,8 +1,8 @@
 ﻿@using DubaiMusicSchool.Common
 @using DubaiMusicSchool.Data.Models
 @using Microsoft.AspNetCore.Identity
-@inject SignInManager<ApplicationUser> SignInManager
-@inject UserManager<ApplicationUser> UserManager
+@inject SignInManager<SchoolAppUser> SignInManager
+@inject UserManager<SchoolAppUser> UserManager
 
 <ul class="navbar-nav">
     @if (this.SignInManager.IsSignedIn(this.User))

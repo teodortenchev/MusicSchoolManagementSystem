@@ -12,7 +12,7 @@
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
+    public class ApplicationDbContext : IdentityDbContext<SchoolAppUser, ApplicationRole, string>
     {
         private static readonly MethodInfo SetIsDeletedQueryFilterMethod =
             typeof(ApplicationDbContext).GetMethod(
@@ -24,7 +24,7 @@
         {
         }
 
-        public DbSet<Setting> Settings { get; set; }
+        public DbSet<Lesson> Lessons { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 

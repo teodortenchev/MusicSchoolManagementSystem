@@ -1,12 +1,18 @@
 ﻿namespace DubaiMusicSchool.Data.Models
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     using DubaiMusicSchool.Common;
 
     public class SchoolAppUser : ApplicationUser
     {
+        public SchoolAppUser()
+        {
+            this.Lessons = new HashSet<Lesson>();
+        }
+
         [MaxLength(GlobalConstants.PersonNameMaxLength)]
         [Required]
         public string FirstName { get; set; }
@@ -20,5 +26,9 @@
 
         [Required]
         public string Gender { get; set; }
+
+        public virtual ICollection<Lesson> Lessons { get; set; }
+
+        public int LessonCredits { get; set; }
     }
 }
