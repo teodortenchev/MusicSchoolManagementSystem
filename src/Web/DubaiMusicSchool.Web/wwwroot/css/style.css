@@ -99,6 +99,12 @@ h6, .h6 {
   }
 }
 
+.responsive {
+    width: 100%;
+    height: auto;
+}
+
+
 /* Button style */
 .btn {
   font-size: 16px;
