@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\DubaiMusicSchool.Common\DubaiMusicSchool.Common.csproj" />
     <ProjectReference Include="..\DubaiMusicSchool.Data.Common\DubaiMusicSchool.Data.Common.csproj" />
   </ItemGroup>
   
