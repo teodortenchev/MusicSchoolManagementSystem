@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Register";
     Layout = "_SimpleLayout";
+    ViewData["Genders"] = new List<string> { "Male", "Female" };
 }
 
 <div class="container-fluid">
@@ -28,6 +29,28 @@
                     <label asp-for="Input.ConfirmPassword"></label>
                     <input asp-for="Input.ConfirmPassword" class="form-control" />
                     <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.FirstName"></label>
+                    <input asp-for="Input.FirstName" class="form-control" />
+                    <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.LastName"></label>
+                    <input asp-for="Input.LastName" class="form-control" />
+                    <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.BirthDate"></label>
+                    <input asp-for="Input.BirthDate" asp-format="{0:dd/MM/yyyy}" class="form-control" />
+                    <span asp-validation-for="Input.BirthDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Gender"></label>
+                    <select asp-for="Input.Gender" asp-items="@(new SelectList(Model.Genders))">
+                        <option value="">Select one</option>
+                    </select>
+                    <span asp-validation-for="Input.Gender" class="text-danger"></span>
                 </div>
                 <button type="submit" class="btn btn-primary">Register</button>
             </form>
