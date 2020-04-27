@@ -7,6 +7,7 @@
     using System.Text;
     using System.Text.Encodings.Web;
     using System.Threading.Tasks;
+
     using DubaiMusicSchool.Common;
     using DubaiMusicSchool.Data.Models;
     using Microsoft.AspNetCore.Authentication;
@@ -25,6 +26,8 @@
         private readonly UserManager<SchoolAppUser> userManager;
         private readonly ILogger<RegisterModel> logger;
         private readonly IEmailSender emailSender;
+
+        public List<string> Genders = new List<string> { "Male", "Female" };
 
         public RegisterModel(
             UserManager<SchoolAppUser> userManager,
@@ -45,7 +48,6 @@
 
         public IList<AuthenticationScheme> ExternalLogins { get; set; }
 
-        public List<string> Genders = new List<string> { "Male", "Female" };
 
 
         public class InputModel

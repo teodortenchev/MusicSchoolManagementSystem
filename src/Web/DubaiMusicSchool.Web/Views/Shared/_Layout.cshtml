@@ -38,12 +38,7 @@
                             <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="ti-instagram"></i></a></li>
                         </ul>
                     </div>
-                    <div class="col-lg-8 text-center text-lg-right">
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#" data-toggle="modal" data-target="#loginModal">login</a></li>
-                            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#" data-toggle="modal" data-target="#signupModal">register</a></li>
-                        </ul>
-                    </div>
+                    <partial name="_LoginPartial" />                    
                 </div>
             </div>
         </div>
@@ -128,12 +123,12 @@
             </nav>*@
     </header>
 
-    
-            @this.RenderBody()
-    
+
+    @this.RenderBody()
+
     <!-- footer -->
     <footer>
-    
+
         <!-- footer content -->
         <div class="footer bg-footer section border-bottom">
             <div class="container">
@@ -218,7 +213,6 @@
         </div>
     </footer>
     <!-- /footer -->
-
     <!-- SCRIPTS -->
     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>
