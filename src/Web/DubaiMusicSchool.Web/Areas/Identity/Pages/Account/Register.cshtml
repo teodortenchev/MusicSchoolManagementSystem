@@ -46,13 +46,20 @@
                     <span asp-validation-for="Input.BirthDate" class="text-danger"></span>
                 </div>
                 <div class="form-group">
+                    <label asp-for="Input.PhoneNumber"></label>
+                    <input asp-for="Input.PhoneNumber" class="form-control" />
+                    <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
                     <label asp-for="Input.Gender"></label>
                     <select asp-for="Input.Gender" asp-items="@(new SelectList(Model.Genders))">
                         <option value="">Select one</option>
                     </select>
                     <span asp-validation-for="Input.Gender" class="text-danger"></span>
                 </div>
-                <button type="submit" class="btn btn-primary">Register</button>
+                <button type="submit" class="btn btn-primary mx-auto d-block mb-5">Register</button>
+                
+
             </form>
         </div>
     </div>

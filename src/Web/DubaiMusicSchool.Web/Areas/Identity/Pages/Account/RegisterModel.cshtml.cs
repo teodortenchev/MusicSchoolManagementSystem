@@ -89,7 +89,12 @@
             [DataType(DataType.Text)]
             [Display(Name = "Gender")]
             public string Gender { get; set; }
-    }
+
+            [Required]
+            [DataType(DataType.PhoneNumber)]
+            [Display(Name = "Mobile Number")]
+            public string PhoneNumber { get; set; }
+        }
 
         public async Task OnGetAsync(string returnUrl = null)
         {
@@ -114,6 +119,7 @@
                     LastName = this.Input.LastName,
                     BirthDate = this.Input.BirthDate,
                     Gender = this.Input.Gender,
+                    PhoneNumber = this.Input.PhoneNumber
                 };
 
 
