@@ -11,7 +11,7 @@
         public SchoolAppUser()
         {
             this.Lessons = new HashSet<Lesson>();
-            this.LessonCredits = 0;
+            this.LessonCredits = 1;
         }
 
         [MaxLength(GlobalConstants.PersonNameMaxLength)]
