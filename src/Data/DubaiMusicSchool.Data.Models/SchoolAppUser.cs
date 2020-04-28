@@ -31,5 +31,8 @@
         public virtual ICollection<Lesson> Lessons { get; set; }
 
         public int LessonCredits { get; set; }
+
+        [Display(Name = "Profile Picture")]
+        public string ProfilePicture { get; set; }
     }
 }

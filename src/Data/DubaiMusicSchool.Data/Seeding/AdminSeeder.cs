@@ -18,7 +18,11 @@
             if (dbContext.Users.Count() == 1)
             {
                 var user = dbContext.Users.First();
-                await userManager.AddToRoleAsync(user, GlobalConstants.AdministratorRoleName);
+
+                if (!user.Roles.Any())
+                {
+                    await userManager.AddToRoleAsync(user, GlobalConstants.AdministratorRoleName);
+                }
             }
 
             await dbContext.SaveChangesAsync();

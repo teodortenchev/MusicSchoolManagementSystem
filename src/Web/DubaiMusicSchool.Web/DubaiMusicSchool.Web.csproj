@@ -42,4 +42,8 @@
     <ProjectReference Include="..\DubaiMusicSchool.Web.Infrastructure\DubaiMusicSchool.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\DubaiMusicSchool.Web.ViewModels\DubaiMusicSchool.Web.ViewModels.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\userimages\" />
+  </ItemGroup>
 </Project>
