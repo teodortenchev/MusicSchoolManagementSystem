@@ -1,6 +1,17 @@
-﻿@using DubaiMusicSchool.Common
+﻿@using DubaiMusicSchool.Data.Models
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<SchoolAppUser> SignInManager
+@inject UserManager<SchoolAppUser> UserManager
+
 @{
     this.ViewData["Title"] = "Home Page";
 }
+@if (!this.SignInManager.IsSignedIn(this.User))
+{
+    <partial name="_GuestUserPartial" />
+}
+else
+{
 
-<partial name="_HomePagePartial" />
+}
+
