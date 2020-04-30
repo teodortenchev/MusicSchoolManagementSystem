@@ -60,12 +60,51 @@ namespace DubaiMusicSchool.Data.Migrations
                     b.ToTable("AspNetRoles");
                 });
 
+            modelBuilder.Entity("DubaiMusicSchool.Data.Models.Course", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Picture")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.ToTable("Courses");
+                });
+
             modelBuilder.Entity("DubaiMusicSchool.Data.Models.Lesson", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CourseId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -95,6 +134,8 @@ namespace DubaiMusicSchool.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CourseId");
 
                     b.HasIndex("IsDeleted");
 
@@ -313,6 +354,10 @@ namespace DubaiMusicSchool.Data.Migrations
 
             modelBuilder.Entity("DubaiMusicSchool.Data.Models.Lesson", b =>
                 {
+                    b.HasOne("DubaiMusicSchool.Data.Models.Course", null)
+                        .WithMany("Lessons")
+                        .HasForeignKey("CourseId");
+
                     b.HasOne("DubaiMusicSchool.Data.Models.SchoolAppUser", null)
                         .WithMany("Lessons")
                         .HasForeignKey("StudentId")

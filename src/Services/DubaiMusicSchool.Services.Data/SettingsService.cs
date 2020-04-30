@@ -9,9 +9,9 @@
 
     public class SettingsService : ISettingsService
     {
-        private readonly IDeletableEntityRepository<Courses> settingsRepository;
+        private readonly IDeletableEntityRepository<Course> settingsRepository;
 
-        public SettingsService(IDeletableEntityRepository<Courses> settingsRepository)
+        public SettingsService(IDeletableEntityRepository<Course> settingsRepository)
         {
             this.settingsRepository = settingsRepository;
         }

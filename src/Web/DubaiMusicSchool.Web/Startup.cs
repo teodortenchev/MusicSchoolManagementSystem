@@ -1,5 +1,8 @@
 ﻿namespace DubaiMusicSchool.Web
 {
+    using System;
+    using System.Linq;
+    using System.Net.Http;
     using System.Reflection;
 
     using DubaiMusicSchool.Data;
@@ -14,6 +17,7 @@
     using DubaiMusicSchool.Web.ViewModels;
 
     using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Components;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
@@ -50,9 +54,23 @@
             services.AddControllersWithViews(
                 options =>
                     {
-                        options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+                        //options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
                     });
+
+            if (!services.Any(x => x.ServiceType == typeof(HttpClient)))
+            {
+                services.AddScoped<HttpClient>(s =>
+                {
+                    var uriHelper = s.GetRequiredService<NavigationManager>();
+                    return new HttpClient
+                    {
+                        BaseAddress = new Uri(uriHelper.BaseUri)
+                    };
+                });
+            }
+
             services.AddRazorPages();
+            services.AddServerSideBlazor();
 
             services.AddSingleton(this.configuration);
 
@@ -105,6 +123,7 @@
                         endpoints.MapControllerRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
                         endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
                         endpoints.MapRazorPages();
+                        endpoints.MapBlazorHub();
                     });
         }
     }

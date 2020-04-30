@@ -19,6 +19,32 @@
             return this.View();
         }
 
+        [Route("/contact")]
+        public IActionResult Contact()
+        {
+            return this.View();
+        }
+
+        [Route("/courses")]
+        public IActionResult Courses()
+        {
+            return this.View();
+        }
+
+        [Route("/events")]
+        public IActionResult Events()
+        {
+            return this.View();
+        }
+
+        [Route("/teachers")]
+        public IActionResult Teachers()
+        {
+            return this.View();
+        }
+
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

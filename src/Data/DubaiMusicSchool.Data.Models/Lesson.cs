@@ -8,12 +8,12 @@
     {
         public string Title { get; set; }
 
-        public string StudentId { get; set; }
-
-        public virtual SchoolAppUser Student { get; set; }
-
         public DateTime StartTime { get; set; }
 
         public DateTime EndTime { get; set; }
+
+        public string StudentId { get; set; }
+
+        public SchoolAppUser Student { get; set; }
     }
 }

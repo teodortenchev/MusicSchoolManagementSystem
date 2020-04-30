@@ -5,7 +5,7 @@
 
     using AutoMapper;
 
-    public class SettingViewModel : IMapFrom<Courses>, IHaveCustomMappings
+    public class SettingViewModel : IMapFrom<Course>, IHaveCustomMappings
     {
         public int Id { get; set; }
 
