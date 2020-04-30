@@ -25,7 +25,7 @@
             return this.View();
         }
 
-        [Route("/courses")]
+        [Route("~/courses")]
         public IActionResult Courses()
         {
             return this.View();
@@ -37,7 +37,7 @@
             return this.View();
         }
 
-        [Route("/teachers")]
+        [Route("~/teachers")]
         public IActionResult Teachers()
         {
             return this.View();

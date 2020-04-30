@@ -26,6 +26,8 @@
 
         public DbSet<Lesson> Lessons { get; set; }
 
+        public DbSet<Teacher> Teachers { get; set; }
+
         public DbSet<Course> Courses { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);

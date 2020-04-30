@@ -250,6 +250,27 @@ namespace DubaiMusicSchool.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("DubaiMusicSchool.Data.Models.Teacher", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Subject")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Teachers");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.Property<int>("Id")
@@ -368,6 +389,13 @@ namespace DubaiMusicSchool.Data.Migrations
                     b.HasOne("DubaiMusicSchool.Data.Models.SchoolAppUser", "Student")
                         .WithMany()
                         .HasForeignKey("StudentId1");
+                });
+
+            modelBuilder.Entity("DubaiMusicSchool.Data.Models.Teacher", b =>
+                {
+                    b.HasOne("DubaiMusicSchool.Data.Models.SchoolAppUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
