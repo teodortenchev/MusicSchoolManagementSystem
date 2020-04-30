@@ -12,8 +12,10 @@
             this.Lessons = new HashSet<Lesson>();
         }
 
+        [Required]
         public string Name { get; set; }
 
+        [Required]
         public string Description { get; set; }
 
         [Required(ErrorMessage = "Please upload a picture for this course")]
